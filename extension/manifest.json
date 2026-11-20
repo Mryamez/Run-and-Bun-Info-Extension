@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Run & Bun Dex Lookup",
+  "version": "1.0.0",
+  "description": "Highlight a move, ability or item name to see its Gen 8 effect, with Pokémon Run & Bun changes.",
+  "permissions": ["contextMenus", "storage"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Run & Bun Dex" },
+  "commands": {
+    "lookup-selection": {
+      "suggested_key": { "default": "Alt+Shift+L" },
+      "description": "Look up the highlighted text"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["data.js", "lookup.js", "content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}

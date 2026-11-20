@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>RnB test</title></head>
+<body style="font:16px sans-serif;padding:30px">
+<p id="p1">Swampert used Close Combat! The foe's Mimikyu has Disguise and holds a Figy Berry.</p>
+<p id="p2">Thunder Wave and Electric Terrain. Typo: Thundrbolt</p>
+<script>
+  window.__msgs = [];
+  window.chrome = {
+    storage: { sync: { get: (d, cb) => cb(d) }, onChanged: { addListener() {} } },
+    runtime: { onMessage: { addListener: (f) => window.__msgs.push(f) } },
+  };
+</script>
+<script src="../extension/data.js"></script>
+<script src="../extension/lookup.js"></script>
+<script src="../extension/content.js"></script>
+</body></html>
